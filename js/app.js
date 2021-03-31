@@ -5,10 +5,20 @@ function addTable(){
 	var table = document.getElementById('tableId');
 	var tRow = '<tr><td>'+predmet+'</td><td>'+godina+'</td><td>'+ects+'</td></tr>';
 	
-	document.getElementById('tableId').innerHTML +='<tr><td>'+predmet+'</td><td>'+godina+'</td><td>'+ects+'</td><td><button onclick="Obrisi(this)">Obrisi</button></td></tr>';
+	document.getElementById('tableId').innerHTML +='<tr><td>'+predmet+'</td><td>'+godina+'</td><td>'+ects+'</td><td><button onclick="Obrisi(this)">Obrisi</button></td><td><input type="checkbox" onclick="DajBoju(this)" />&nbsp;</td></tr>';
 	
 }
 function Obrisi(r) {
     var i = r.parentNode.parentNode.rowIndex;
     document.getElementById("myTable").deleteRow(i);
+}
+
+function DajBoju(indeks){
+	var y = indeks.parentNode.parentNode;
+  if(indeks.checked){
+  	y.classList.add("boja");
+  }
+  else if(!(indeks.checked)){
+  	y.classList.remove("boja");
+  }
 }
